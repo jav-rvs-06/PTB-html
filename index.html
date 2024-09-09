@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Por tu Bien - Enfocandonos en tu Futuro</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: #fff5f5;
+            border-bottom: 1px solid #fecdd3;
+            padding: 20px 0;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #db2777;
+            font-family: 'Droid Serif Pro WGL', serif;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            color: #f472b6;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #db2777;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #9d174d;
+        }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #db2777;
+            cursor: pointer;
+        }
+        main {
+            padding: 40px 0;
+        }
+        h1, h2 {
+            color: #db2777;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #db2777;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #9d174d;
+        }
+        #equipo {
+            background-color: #fff5f5;
+            padding: 40px 0;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .team-member {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        #propuestas ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #propuestas li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: start;
+        }
+        #propuestas li::before {
+            content: '🌷';
+            margin-right: 10px;
+        }
+        footer {
+            background-color: #fff5f5;
+            border-top: 1px solid #fecdd3;
+            padding: 20px 0;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .contact-links a {
+            margin-right: 15px;
+            color: #db2777;
+            text-decoration: none;
+        }
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav {
+                margin-top: 20px;
+                display: none;
+            }
+            nav.active {
+                display: block;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .contact-links {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="new logo 1.jpg" alt="Logo de Por tu Bien" class="logo">
+                    <div>
+                        <div class="logo-text">Por tu Bien</div>
+                        <div class="tagline">Enfocandonos en tu Futuro</div>
+                    </div>
+                </div>
+                <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+                <nav>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#equipo">Equipo</a></li>
+                        <li><a href="#propuestas">Propuestas</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="container">
+            <h1>Bienvenidos a Por tu Bien</h1>
+            <p>Somos una lista política comprometida con el bienestar de todos los estudiantes. Nuestro objetivo es trabajar incansablemente para mejorar la calidad de vida de nuestra comunidad escolar.</p>
+            <a href="#propuestas" class="cta-button">Conoce nuestras propuestas</a>
+        </section>
+
+        <section id="equipo">
+            <div class="container">
+                <h2>Nuestro Equipo</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <h3>Barreiro Bianca</h3>
+                        <p>Presidente</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>La Torre Avril</h3>
+                        <p>Secretario</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Rivero Dos Santos Marcos</h3>
+                        <p>Tesorero</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Rodrigo Vargas</h3>
+                        <p>Vocal 1°</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Máximo Herrera</h3>
+                        <p>Vocal 2°</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Zaira Ramos</h3>
+                        <p>Vocal 3°</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Alma Pereira</h3>
+                        <p>Vocal 4°</p>
+                    </div>
+                    <!-- Añade más miembros del equipo aquí -->
+                </div>
+            </div>
+        </section>
+
+        <section id="propuestas" class="container">
+            <h2>Nuestras Propuestas</h2>
+            <ul>
+                <li>Poner música en los recreos con volumen bajo y a elección de los alumnos</li>
+                <li>Colecta de ropa, objetos y alimentos no perecederos</li>
+                <li>Visita a diferentes lugares ej: asilos</li>
+                <li>Actividades recreativas dentro y fuera de la escuela</li>
+                <li>Ayuda psicológica y acompañamiento emocional</li>
+                <li>Mantenimiento obligatorio de las aulas, baño, pasillos y patios, kits de primeros auxilios</li>
+                <li>Exposiciones sobre diferentes culturas y a elección de los alumnos</li>
+                <li>Modificaciones estéticas</li>
+                <li>Volver a utilizar la radio, relatar los juegos de la escuela, hablar lo sucedido y leer relatos</li>
+                <li>Ayuda a las charlas pedagógicas concientizando las múltiples enfermedades mentales que se pueden llegar a abordar en el espacio estudiantil</li>
+            </ul>
+            <p><em>Cabe recalcar que las propuestas sobre reparaciones son un tema complicado, no podemos hacerlas, no están en nuestras manos. Eso está en manos del ministerio de educación y del intendente de Quilmes.</em></p>
+        </section>
+    </main>
+
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h2>Contacto</h2>
+                    <div class="contact-links">
+                        <a href="https://wa.me/5491136925578" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                        <a href="https://www.instagram.com/_.portubien._/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                        <a href="mailto:sofia.uwu.barreiro@gmail.com">Email</a>
+                    </div>
+                    <p>&copy; 2024 Por tu Bien. Todos los derechos reservados.</p>
+                </div>
+                <nav>
+                    <a href="#">Términos de Servicio</a>
+                    <a href="#">Política de Privacidad</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                menuToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
+            });
+        });
+    </script>
+</body>
+</html>
