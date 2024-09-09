@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Por tu Bien - Enfocandonos en tu Futuro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS styles */
+        :root {
+            --primary: #db2777;
+            --primary-light: #f472b6;
+            --background: #fff5f5;
+            --text: #333333;
+            --text-light: #666666;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text);
             margin: 0;
             padding: 0;
-            background-color: #fff;
+            background-color: #ffffff;
         }
         .container {
             width: 90%;
@@ -21,8 +28,8 @@
             padding: 0 20px;
         }
         header {
-            background-color: #fff5f5;
-            border-bottom: 1px solid #fecdd3;
+            background-color: var(--background);
+            border-bottom: 1px solid var(--primary-light);
             padding: 20px 0;
         }
         .header-content {
@@ -41,14 +48,14 @@
             margin-right: 20px;
         }
         .logo-text {
+            font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             font-weight: bold;
-            color: #db2777;
-            font-family: 'Droid Serif Pro WGL', serif;
+            color: var(--primary);
         }
         .tagline {
             font-size: 1.2rem;
-            color: #f472b6;
+            color: var(--primary-light);
         }
         nav ul {
             list-style-type: none;
@@ -60,83 +67,111 @@
         }
         nav ul li a {
             text-decoration: none;
-            color: #db2777;
+            color: var(--primary);
             transition: color 0.3s;
+            font-weight: bold;
         }
         nav ul li a:hover {
-            color: #9d174d;
+            color: var(--primary-light);
         }
         .menu-toggle {
             display: none;
             background: none;
             border: none;
             font-size: 1.5rem;
-            color: #db2777;
+            color: var(--primary);
             cursor: pointer;
         }
         main {
             padding: 40px 0;
         }
-        h1, h2 {
-            color: #db2777;
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
         }
         .cta-button {
             display: inline-block;
-            background-color: #db2777;
+            background-color: var(--primary);
             color: white;
-            padding: 10px 20px;
+            padding: 12px 24px;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            border-radius: 30px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         .cta-button:hover {
-            background-color: #9d174d;
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
         }
         #equipo {
-            background-color: #fff5f5;
-            padding: 40px 0;
+            background-color: var(--background);
+            padding: 60px 0;
         }
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 30px;
         }
         .team-member {
             background-color: white;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        .team-member h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        .team-member p {
+            color: var(--text-light);
+            margin-bottom: 0;
         }
         #propuestas ul {
             list-style-type: none;
             padding: 0;
         }
         #propuestas li {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             display: flex;
             align-items: start;
+            background-color: var(--background);
+            padding: 15px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        #propuestas li:hover {
+            transform: translateX(5px);
         }
         #propuestas li::before {
             content: '🌷';
-            margin-right: 10px;
+            margin-right: 15px;
+            font-size: 1.2em;
         }
         footer {
-            background-color: #fff5f5;
-            border-top: 1px solid #fecdd3;
-            padding: 20px 0;
+            background-color: var(--background);
+            border-top: 1px solid var(--primary-light);
+            padding: 40px 0;
         }
         .footer-content {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
         }
         .contact-links a {
+            display: inline-block;
             margin-right: 15px;
-            color: #db2777;
+            color: var(--primary);
             text-decoration: none;
+            transition: color 0.3s;
         }
         .contact-links a:hover {
-            text-decoration: underline;
+            color: var(--primary-light);
         }
         @media (max-width: 768px) {
             .header-content {
@@ -213,6 +248,10 @@
                         <p>Presidente</p>
                     </div>
                     <div class="team-member">
+                        <h3>Posición Vacante</h3>
+                        <p>Vicepresidente</p>
+                    </div>
+                    <div class="team-member">
                         <h3>La Torre Avril</h3>
                         <p>Secretario</p>
                     </div>
@@ -236,7 +275,38 @@
                         <h3>Alma Pereira</h3>
                         <p>Vocal 4°</p>
                     </div>
-                    <!-- Añade más miembros del equipo aquí -->
+                    <div class="team-member">
+                        <h3>Sebastian Fernandez</h3>
+                        <p>Secretaria De Deportes 1°</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Bogado Morena</h3>
+                        <p>Secretaria De Deportes 2°</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Posición Vacante</h3>
+                        <p>Secretaria De Tu Bien Estar 1°</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Posición Vacante</h3>
+                        <p>Secretaria De Tu Bien Estar 2°</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Nayla Páez</h3>
+                        <p>Secretaria De Humanidad 1°</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Posición Vacante</h3>
+                        <p>Secretaria De Humanidad 2°</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Pinto Oriana</h3>
+                        <p>Secretaria De Cultura 1°</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Posición Vacante</h3>
+                        <p>Secretaria De Cultura 2°</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -280,7 +350,6 @@
     </footer>
 
     <script>
-        // JavaScript for mobile menu toggle
         document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.querySelector('.menu-toggle');
             const nav = document.querySelector('nav');
