@@ -132,6 +132,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s;
+            position: relative;
         }
         .team-member:hover {
             transform: translateY(-5px);
@@ -139,10 +140,36 @@
         .team-member h3 {
             margin-top: 0;
             color: var(--primary);
+            cursor: pointer;
         }
         .team-member p {
             color: var(--text-light);
             margin-bottom: 0;
+        }
+        .member-image {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+        .team-member:hover .member-image {
+            display: block;
+        }
+        .dropdown-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 10px;
         }
         #propuestas ul {
             list-style-type: none;
@@ -228,6 +255,17 @@
             .contact-links {
                 margin-bottom: 20px;
             }
+            .dropdown-toggle {
+                display: block;
+            }
+            .team-member:hover .member-image {
+                display: none;
+            }
+            .team-member.active .member-image {
+                display: block;
+                position: static;
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
@@ -258,7 +296,7 @@
     <main>
         <section id="inicio" class="container">
             <h1>Bienvenidos a Por tu Bien</h1>
-            <p>Somos una lista política que se compromete con el bienestar integral de todos los estudiantes, basándonos en valores de inclusión, respeto y solidaridad. Nuestro propósito es identificar y abordar las necesidades de la comunidad educativa, promoviendo un entorno donde todos se sientan apoyados. Trabajamos en conjunto para impulsar iniciativas que mejoren la calidad de vida, desde actividades recreativas y culturales hasta apoyo emocional, garantizando un espacio seguro y colaborativo.</p>
+            <p>Somos una lista política comprometida con el bienestar de todos los estudiantes. Nuestro objetivo es trabajar incansablemente para mejorar la calidad de vida de nuestra comunidad escolar.</p>
             <a href="#propuestas" class="cta-button">Conoce nuestras propuestas</a>
         </section>
 
@@ -272,6 +310,8 @@
                         <div class="team-member">
                             <h3>Barreiro Bianca</h3>
                             <p>Presidente</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
+                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Barreiro Bianca" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Posición Vacante</h3>
@@ -286,10 +326,14 @@
                         <div class="team-member">
                             <h3>La Torre Avril</h3>
                             <p>Secretario</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
+                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de La Torre Avril" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Rivero Dos Santos Marcos</h3>
                             <p>Tesorero</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
+                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Rivero Dos Santos Marcos" class="member-image">
                         </div>
                     </div>
                 </div>
@@ -300,18 +344,26 @@
                         <div class="team-member">
                             <h3>Rodrigo Vargas</h3>
                             <p>Vocal 1°</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
+                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Rodrigo Vargas" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Máximo Herrera</h3>
                             <p>Vocal 2°</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
+                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Máximo Herrera" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Zaira Ramos</h3>
                             <p>Vocal 3°</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
+                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Zaira Ramos" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Alma Pereira</h3>
                             <p>Vocal 4°</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
+                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Alma Pereira" class="member-image">
                         </div>
                     </div>
                 </div>
@@ -322,10 +374,14 @@
                         <div class="team-member">
                             <h3>Sebastian Fernandez</h3>
                             <p>Secretaría De Deportes 1°</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
+                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Sebastian Fernandez" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Bogado Morena</h3>
                             <p>Secretaría De Deportes 2°</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
+                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Bogado Morena" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Posición Vacante</h3>
@@ -338,6 +394,8 @@
                         <div class="team-member">
                             <h3>Nayla Páez</h3>
                             <p>Secretaría De Humanidad 1°</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
+                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Nayla Páez" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Posición Vacante</h3>
@@ -346,6 +404,8 @@
                         <div class="team-member">
                             <h3>Pinto Oriana</h3>
                             <p>Secretaría De Cultura 1°</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
+                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Pinto Oriana" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Posición Vacante</h3>
@@ -445,6 +505,16 @@
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     smoothScroll(this.getAttribute('href'), 1000);
+                });
+            });
+
+            // Toggle member images on mobile
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const teamMember = this.closest('.team-member');
+                    teamMember.classList.toggle('active');
+                    this.setAttribute('aria-expanded', teamMember.classList.contains('active'));
                 });
             });
         });
