@@ -49,7 +49,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
+            position: relative;
+}
 
         .logo-container {
             display: flex;
@@ -103,12 +104,6 @@
             font-size: 1.5rem;
             color: var(--primary);
             cursor: pointer;
-        }
-
-        .menu-toggle::after {
-            content: '⬇';
-            font-size: 1.5rem;
-            margin-left: 5px;
         }
 
         main {
@@ -301,6 +296,9 @@
                 position: absolute;
                 top: 20px;
                 right: 20px;
+            }
+            .logo-container {
+                padding-right: 50px; /* Add space for the menu toggle */
             }
 
             .footer-content {
