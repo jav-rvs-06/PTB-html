@@ -133,6 +133,7 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s;
             position: relative;
+            overflow: hidden;
         }
         .team-member:hover {
             transform: translateY(-5px);
@@ -147,15 +148,14 @@
             margin-bottom: 0;
         }
         .member-image {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
             width: 100%;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            z-index: 10;
+            transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
         }
         .team-member:hover .member-image {
             display: block;
@@ -170,6 +170,15 @@
             position: absolute;
             right: 10px;
             top: 10px;
+            transition: transform 0.5s ease;
+        }
+        .team-member.active .dropdown-toggle {
+            transform: rotate(180deg);
+        }
+        .team-member.active .member-image {
+            max-height: 300px;
+            opacity: 1;
+            margin-top: 15px;
         }
         #propuestas ul {
             list-style-type: none;
@@ -311,7 +320,7 @@
                             <h3>Barreiro Bianca</h3>
                             <p>Presidente</p>
                             <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
-                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Barreiro Bianca" class="member-image">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sofia-o5PYgHBOflR37T9tOfh04Is4YwHvRl.jpg" alt="Foto de Barreiro Bianca" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Posición Vacante</h3>
@@ -375,7 +384,8 @@
                             <h3>Sebastian Fernandez</h3>
                             <p>Secretaría De Deportes 1°</p>
                             <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
-                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Sebastian Fernandez" class="member-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Sebastian Fern
+andez" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Bogado Morena</h3>
@@ -508,13 +518,25 @@
                 });
             });
 
-            // Toggle member images on mobile
+            // Toggle member images on mobile with animation
             const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
             dropdownToggles.forEach(toggle => {
-                toggle.addEventListener('click', function() {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
                     const teamMember = this.closest('.team-member');
+                    
+                    // Close all other open panels
+                    document.querySelectorAll('.team-member.active').forEach(member => {
+                        if (member !== teamMember) {
+                            member.classList.remove('active');
+                            member.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                    
+                    // Toggle the clicked panel
                     teamMember.classList.toggle('active');
-                    this.setAttribute('aria-expanded', teamMember.classList.contains('active'));
+                    const isExpanded = teamMember.classList.contains('active');
+                    this.setAttribute('aria-expanded', isExpanded);
                 });
             });
         });
