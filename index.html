@@ -22,6 +22,7 @@
             --text: #333333;
             --text-light: #666666;
         }
+
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -30,59 +31,71 @@
             padding: 0;
             background-color: #ffffff;
         }
+
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
+
         header {
             background-color: var(--background);
             border-bottom: 1px solid var(--primary-light);
             padding: 20px 0;
         }
+
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         .logo-container {
             display: flex;
             align-items: center;
         }
+
         .logo {
             width: 120px;
             height: 120px;
             border-radius: 50%;
             margin-right: 20px;
         }
+
         .logo-text {
-            font-family:'Droid Serif Pro WGL';
+            font-family: 'Droid Serif Pro WGL';
             font-size: 2.8rem;
             font-weight: bold;
             color: var(--primary);
         }
+
         .tagline {
             font-size: 1.4rem;
             color: var(--primary-light);
         }
+
         nav ul {
             list-style-type: none;
             padding: 0;
             display: flex;
         }
+
         nav ul li {
             margin-left: 20px;
         }
+
         nav ul li a {
             text-decoration: none;
             color: var(--primary);
             transition: color 0.3s;
             font-weight: bold;
         }
+
         nav ul li a:hover {
             color: var(--primary-light);
         }
+
         .menu-toggle {
             display: none;
             background: none;
@@ -91,13 +104,22 @@
             color: var(--primary);
             cursor: pointer;
         }
+
+        .menu-toggle::after {
+            content: '⬇';
+            font-size: 1.5rem;
+            margin-left: 5px;
+        }
+
         main {
             padding: 40px 0;
         }
+
         h1, h2, h3 {
             font-family: 'Cabrion Bold', Arial, sans-serif;
             color: var(--primary);
         }
+
         .cta-button {
             display: inline-block;
             background-color: var(--primary);
@@ -110,22 +132,27 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+
         .cta-button:hover {
             background-color: var(--primary-light);
             transform: translateY(-2px);
         }
+
         #equipo {
             background-color: var(--background);
             padding: 60px 0;
         }
+
         .team-section {
             margin-bottom: 40px;
         }
+
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 30px;
         }
+
         .team-member {
             background-color: white;
             padding: 20px;
@@ -134,18 +161,22 @@
             transition: transform 0.3s;
             position: relative;
         }
+
         .team-member:hover {
             transform: translateY(-5px);
         }
+
         .team-member h3 {
             margin-top: 0;
             color: var(--primary);
             cursor: pointer;
         }
+
         .team-member p {
             color: var(--text-light);
             margin-bottom: 0;
         }
+
         .member-image {
             display: none;
             position: absolute;
@@ -156,10 +187,17 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             z-index: 10;
+            opacity: 0;
+            transition: opacity 2s ease-in-out, transform 2s;
+            transform: scale(0.9);
         }
+
         .team-member:hover .member-image {
             display: block;
+            opacity: 1;
+            transform: scale(1);
         }
+
         .dropdown-toggle {
             display: none;
             background: none;
@@ -171,10 +209,12 @@
             right: 10px;
             top: 10px;
         }
+
         #propuestas ul {
             list-style-type: none;
             padding: 0;
         }
+
         #propuestas li {
             margin-bottom: 15px;
             display: flex;
@@ -185,24 +225,29 @@
             transition: transform 0.3s;
             color: var(--primary);
         }
+
         #propuestas li:hover {
             transform: translateX(5px);
         }
+
         #propuestas li::before {
             content: '🌷';
             margin-right: 15px;
             font-size: 1.2em;
         }
+
         footer {
             background-color: var(--background);
             border-top: 1px solid var(--primary-light);
             padding: 40px 0;
         }
+
         .footer-content {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
         }
+
         .contact-links a {
             display: inline-flex;
             align-items: center;
@@ -210,57 +255,71 @@
             text-decoration: none;
             transition: color 0.3s;
         }
+
         .contact-links a:hover {
             opacity: 0.8;
         }
+
         .contact-links img {
             width: 24px;
             height: 24px;
             margin-right: 8px;
         }
+
         .footer-links a {
             color: var(--primary);
             text-decoration: none;
             margin-left: 20px;
         }
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
                 align-items: flex-start;
             }
+
             nav {
                 margin-top: 20px;
                 display: none;
             }
+
             nav.active {
                 display: block;
             }
+
             nav ul {
                 flex-direction: column;
             }
+
             nav ul li {
                 margin-left: 0;
                 margin-bottom: 10px;
             }
+
             .menu-toggle {
                 display: block;
                 position: absolute;
                 top: 20px;
                 right: 20px;
             }
+
             .footer-content {
                 flex-direction: column;
                 align-items: flex-start;
             }
+
             .contact-links {
                 margin-bottom: 20px;
             }
+
             .dropdown-toggle {
                 display: block;
             }
+
             .team-member:hover .member-image {
                 display: none;
             }
+
             .team-member.active .member-image {
                 display: block;
                 position: static;
@@ -310,8 +369,7 @@
                         <div class="team-member">
                             <h3>Barreiro Bianca</h3>
                             <p>Presidente</p>
-                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
-                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Barreiro Bianca" class="member-image">
+                            <img src="bianca.jpg" alt="Foto de Barreiro Bianca" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Posición Vacante</h3>
@@ -326,14 +384,12 @@
                         <div class="team-member">
                             <h3>La Torre Avril</h3>
                             <p>Secretario</p>
-                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
-                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de La Torre Avril" class="member-image">
+                            <img src="avril.jpg" alt="Foto de La Torre Avril" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Rivero Dos Santos Marcos</h3>
                             <p>Tesorero</p>
-                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
-                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Rivero Dos Santos Marcos" class="member-image">
+                            <img src="marcos.jpg" alt="Foto de Rivero Dos Santos Marcos" class="member-image">
                         </div>
                     </div>
                 </div>
@@ -344,26 +400,22 @@
                         <div class="team-member">
                             <h3>Rodrigo Vargas</h3>
                             <p>Vocal 1°</p>
-                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
-                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Rodrigo Vargas" class="member-image">
+                            <img src="rodrigo.jpg" alt="Foto de Rodrigo Vargas" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Máximo Herrera</h3>
                             <p>Vocal 2°</p>
-                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
-                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Máximo Herrera" class="member-image">
+                            <img src="maximo.jpg" alt="Foto de Máximo Herrera" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Zaira Ramos</h3>
                             <p>Vocal 3°</p>
-                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
-                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Zaira Ramos" class="member-image">
+                            <img src="zaira.jpg" alt="Foto de Zaira Ramos" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Alma Pereira</h3>
                             <p>Vocal 4°</p>
-                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
-                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Alma Pereira" class="member-image">
+                            <img src="alma.jpg" alt="Foto de Alma Pereira" class="member-image">
                         </div>
                     </div>
                 </div>
@@ -374,14 +426,12 @@
                         <div class="team-member">
                             <h3>Sebastian Fernandez</h3>
                             <p>Secretaría De Deportes 1°</p>
-                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
-                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Sebastian Fernandez" class="member-image">
+                            <img src="sebastian.jpg" alt="Foto de Sebastian Fernandez" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Bogado Morena</h3>
                             <p>Secretaría De Deportes 2°</p>
-                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
-                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Bogado Morena" class="member-image">
+                            <img src="morena.jpg" alt="Foto de Bogado Morena" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Posición Vacante</h3>
@@ -394,8 +444,7 @@
                         <div class="team-member">
                             <h3>Nayla Páez</h3>
                             <p>Secretaría De Humanidad 1°</p>
-                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
-                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Nayla Páez" class="member-image">
+                            <img src="nayla.jpg" alt="Foto de Nayla Páez" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Posición Vacante</h3>
@@ -404,8 +453,7 @@
                         <div class="team-member">
                             <h3>Pinto Oriana</h3>
                             <p>Secretaría De Cultura 1°</p>
-                            <button class="dropdown-toggle" aria-label="Ver foto">▼</button>
-                            <img src="/placeholder.svg?height=200&width=200" alt="Foto de Pinto Oriana" class="member-image">
+                            <img src="oriana.jpg" alt="Foto de Pinto Oriana" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Posición Vacante</h3>
