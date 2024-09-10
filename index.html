@@ -637,8 +637,10 @@
             dropdownToggles.forEach(toggle => {
                 toggle.addEventListener('click', function() {
                     const teamMember = this.closest('.team-member');
-                    teamMember.classList.toggle('active');
-                    this.setAttribute('aria-expanded', teamMember.classList.contains('active'));
+                    const memberImage = teamMember.querySelector('.member-image');
+                    this.classList.toggle('active');
+                    memberImage.classList.toggle('active');
+                    this.setAttribute('aria-expanded', memberImage.classList.contains('active'));
                 });
             });
         });
