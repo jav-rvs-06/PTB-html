@@ -50,7 +50,7 @@
             justify-content: space-between;
             align-items: center;
             position: relative;
-}
+        }
 
         .logo-container {
             display: flex;
@@ -267,6 +267,16 @@
             margin-left: 20px;
         }
 
+        @keyframes slideDown {
+            from { max-height: 0; opacity: 0; }
+            to { max-height: 300px; opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { max-height: 300px; opacity: 1; }
+            to { max-height: 0; opacity: 0; }
+        }
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -276,10 +286,18 @@
             nav {
                 margin-top: 20px;
                 display: none;
+                width: 100%;
+                overflow: hidden;
             }
 
             nav.active {
                 display: block;
+                animation: slideDown 0.3s ease-out;
+            }
+
+            nav.closing {
+                display: block;
+                animation: slideUp 0.3s ease-out;
             }
 
             nav ul {
@@ -297,8 +315,9 @@
                 top: 20px;
                 right: 20px;
             }
+
             .logo-container {
-                padding-right: 50px; /* Add space for the menu toggle */
+                padding-right: 50px;
             }
 
             .footer-content {
@@ -322,6 +341,42 @@
                 display: block;
                 position: static;
                 margin-top: 10px;
+                animation: slideDown 0.3s ease-out;
+            }
+
+            .dropdown-toggle {
+                font-size: 24px;
+                transition: transform 0.3s ease;
+            }
+
+            .dropdown-toggle.active {
+                transform: rotate(180deg);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .logo {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .logo-text {
+                font-size: 2.2rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .dropdown-toggle {
+                content: '\25BC';
+                font-size: 18px;
             }
         }
     </style>
@@ -367,6 +422,7 @@
                         <div class="team-member">
                             <h3>Barreiro Bianca</h3>
                             <p>Presidente</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">&#x25BC;</button>
                             <img src="Bianca.jpg" alt="Foto de Barreiro Bianca" class="member-image">
                         </div>
                         <div class="team-member">
@@ -382,11 +438,13 @@
                         <div class="team-member">
                             <h3>La Torre Avril</h3>
                             <p>Secretario</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">&#x25BC;</button>
                             <img src="avril.jpg" alt="Foto de La Torre Avril" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Rivero Dos Santos Marcos</h3>
                             <p>Tesorero</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">&#x25BC;</button>
                             <img src="marcos.jpg" alt="Foto de Rivero Dos Santos Marcos" class="member-image">
                         </div>
                     </div>
@@ -398,21 +456,25 @@
                         <div class="team-member">
                             <h3>Rodrigo Vargas</h3>
                             <p>Vocal 1°</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">&#x25BC;</button>
                             <img src="rodrigo.jpg" alt="Foto de Rodrigo Vargas" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Máximo Herrera</h3>
                             <p>Vocal 2°</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">&#x25BC;</button>
                             <img src="maximo.jpg" alt="Foto de Máximo Herrera" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Zaira Ramos</h3>
                             <p>Vocal 3°</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">&#x25BC;</button>
                             <img src="zaira.jpg" alt="Foto de Zaira Ramos" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Alma Pereira</h3>
                             <p>Vocal 4°</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">&#x25BC;</button>
                             <img src="alma.jpg" alt="Foto de Alma Pereira" class="member-image">
                         </div>
                     </div>
@@ -424,11 +486,13 @@
                         <div class="team-member">
                             <h3>Sebastian Fernandez</h3>
                             <p>Secretaría De Deportes 1°</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">&#x25BC;</button>
                             <img src="sebastian.jpg" alt="Foto de Sebastian Fernandez" class="member-image">
                         </div>
                         <div class="team-member">
                             <h3>Bogado Morena</h3>
                             <p>Secretaría De Deportes 2°</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">&#x25BC;</button>
                             <img src="morena.jpg" alt="Foto de Bogado Morena" class="member-image">
                         </div>
                         <div class="team-member">
@@ -442,6 +506,7 @@
                         <div class="team-member">
                             <h3>Nayla Páez</h3>
                             <p>Secretaría De Humanidad 1°</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">&#x25BC;</button>
                             <img src="nayla.jpg" alt="Foto de Nayla Páez" class="member-image">
                         </div>
                         <div class="team-member">
@@ -451,6 +516,7 @@
                         <div class="team-member">
                             <h3>Pinto Oriana</h3>
                             <p>Secretaría De Cultura 1°</p>
+                            <button class="dropdown-toggle" aria-label="Ver foto">&#x25BC;</button>
                             <img src="oriana.jpg" alt="Foto de Pinto Oriana" class="member-image">
                         </div>
                         <div class="team-member">
@@ -515,7 +581,19 @@
             const nav = document.querySelector('nav');
 
             menuToggle.addEventListener('click', function() {
-                nav.classList.toggle('active');
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    nav.classList.add('closing');
+                    setTimeout(() => {
+                        nav.classList.remove('closing');
+                        nav.style.display = 'none';
+                    }, 300);
+                } else {
+                    nav.style.display = 'block';
+                    setTimeout(() => {
+                        nav.classList.add('active');
+                    }, 10);
+                }
                 menuToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
             });
 
@@ -553,7 +631,7 @@
                     smoothScroll(this.getAttribute('href'), 1000);
                 });
             });
-
+            
             // Toggle member images on mobile
             const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
             dropdownToggles.forEach(toggle => {
