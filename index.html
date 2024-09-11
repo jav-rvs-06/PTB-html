@@ -182,9 +182,9 @@
             height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            z-index: 10;
+            z-index: 100;
             opacity: 0;
-            transition: opacity 0.3s ease-in-out, transform 0.3s;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
             transform: translateY(10px);
         }
 
@@ -622,7 +622,8 @@
                     return -c / 2 * (t * (t - 2) - 1) + b;
                 }
 
-                requestAnimationFrame(animation);
+                requestAnimation
+Frame(animation);
             }
 
             // Add smooth scroll to all links
@@ -634,10 +635,11 @@
                 });
             });
             
-            // Toggle member images on mobile
+            // Toggle member images on mobile and desktop
             const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
             dropdownToggles.forEach(toggle => {
-                toggle.addEventListener('click', function() {
+                toggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
                     const teamMember = this.closest('.team-member');
                     const memberImage = teamMember.querySelector('.member-image');
                     this.classList.toggle('active');
@@ -657,6 +659,26 @@
                     }
                     this.setAttribute('aria-expanded', teamMember.classList.contains('active'));
                 });
+            });
+
+            // Close member images when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.team-member')) {
+                    dropdownToggles.forEach(toggle => {
+                        const teamMember = toggle.closest('.team-member');
+                        const memberImage = teamMember.querySelector('.member-image');
+                        if (teamMember.classList.contains('active')) {
+                            toggle.classList.remove('active');
+                            teamMember.classList.remove('active');
+                            memberImage.style.opacity = '0';
+                            memberImage.style.transform = 'translateY(10px)';
+                            setTimeout(() => {
+                                memberImage.style.display = 'none';
+                            }, 300);
+                            toggle.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                }
             });
         });
     </script>
